@@ -1,0 +1,485 @@
+.customerform{display: none}
+.itemform{display: none}
+.placeorderform{display: none}
+
+#hr{
+    height: 5px;
+    position: relative;
+    top: -21px;
+    color: darkblue;
+}
+
+/*--------------------------------------------home page---------------------------------------------*/
+
+/*--------------------------------------------customer form---------------------------------------------*/
+
+
+#customerTag{
+    position: relative;
+    left: 10px;
+    color: #084298;
+}
+
+#div1{
+    position: relative;
+    left: 60px;
+    top: 20px;
+}
+
+#txtCusID{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#cusIdLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#div2{
+    position: relative;
+    left: 300px;
+    top: -33px;
+}
+
+#txtCusName{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#cusNameLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#div3{
+    position: relative;
+    left: 545px;
+    top: -86.5px;
+}
+
+#txtCusAdd{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#cusAddLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#div4{
+    position: relative;
+    left: 790px;
+    top: -140px;
+}
+
+#txtCusSal{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#cusSalLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#btnSaveCus{
+    position: relative;
+    left: 1050px;
+    top: -170px;
+    width: 100px;
+}
+
+#btnUpdateCus{
+    position: relative;
+    left: 1070px;
+    top: -170px;
+    width: 100px;
+}
+
+#btnDeleteCus{
+    position: relative;
+    left: 1100px;
+    top: -170px;
+    width: 100px;
+}
+
+#txtCusSearch{
+    position: relative;
+    left: -250px;
+    top: -90px;
+    width: 420px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#btnSearchCus{
+    position: relative;
+    left: -200px;
+    top: -95px;
+    width: 150px;
+
+}
+
+#customerTable{
+    background-color: rgba(111, 148, 220,0.5);
+    width: 1400px;
+    position: relative;
+    left: 60px;
+}
+
+/*--------------------------------------------item form---------------------------------------------*/
+
+
+#itemTag{
+    position: relative;
+    left: 10px;
+    color: #084298;
+}
+
+#div1{
+    position: relative;
+    left: 60px;
+    top: 20px;
+}
+
+#txtItemID{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#itemIdLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#div2{
+    position: relative;
+    left: 300px;
+    top: -33px;
+}
+
+#txtItemName{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#itemNameLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#div3{
+    position: relative;
+    left: 545px;
+    top: -86.5px;
+}
+
+#txtItemAdd{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#itemAddLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#div4{
+    position: relative;
+    left: 790px;
+    top: -140px;
+}
+
+#txtItemSal{
+    position: relative;
+    top: 5px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#itemSalLabel{
+    color: #084298 ;
+    font-weight: bold;
+}
+
+#btnSaveItem{
+    position: relative;
+    left: 1050px;
+    top: -170px;
+    width: 100px;
+}
+
+#btnUpdateItem{
+    position: relative;
+    left: 1070px;
+    top: -170px;
+    width: 100px;
+}
+
+#btnDeleteItem{
+    position: relative;
+    left: 1100px;
+    top: -170px;
+    width: 100px;
+}
+
+#txtItemSearch{
+    position: relative;
+    left: -250px;
+    top: -90px;
+    width: 420px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#btnSearchItem{
+    position: relative;
+    left: -200px;
+    top: -95px;
+    width: 150px;
+
+}
+
+#itemTable {
+    background-color: rgba(111, 148, 220, 0.5);
+    width: 1400px;
+    position: relative;
+    left: 60px;
+}
+
+/*--------------------------------------------place order form---------------------------------------------*/
+
+
+#invoiceTagLabel{
+    position: relative;
+    left: 50px;
+    color: #084298 ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#invoiceOrderId{
+    position: relative;
+    left: 50px;
+    top: 40px;
+}
+
+#invoiceOrderDate {
+    position: relative;
+    left: 250px;
+    top: 10px;
+}
+
+#invoiceOrderDateTextField{
+    width: 230px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#invoiceCusId{
+    position: relative;
+    left: 50px;
+    top: 25px;
+}
+
+#invoiceCusIdTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#invoiceCusName{
+    position: relative;
+    left: 250px;
+    top: -32px;
+}
+
+#invoiceCusNameTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#invoiceCusAdd{
+    position: relative;
+    left: 50px;
+    top: -15px;
+}
+
+#invoiceCusAddTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#invoiceCusSal{
+    position: relative;
+    left: 250px;
+    top: -72px;
+}
+
+#invoiceCusSalTextField {
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#selectTagLabel{
+    position: relative;
+    left: 580px;
+    top: -347px;
+    color: #084298 ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#selectItemCode{
+    position: relative;
+    left: 580px;
+    top: -310px;
+}
+
+#selectItemCodeTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#selectItemName{
+    position: relative;
+    left: 800px;
+    top: -367px;
+}
+
+#selectItemNameTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+
+#selectItemPrice{
+    position: relative;
+    left: 580px;
+    top: -350px;
+}
+
+#selectItemPriceTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#selectItemQtyOnHand{
+    position: relative;
+    left: 800px;
+    top: -408px;
+}
+
+#selectItemQtyOnHandTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#selectItemOrderQty{
+    position: relative;
+    left: 580px;
+    top: -390px;
+}
+
+#selectItemOrderQtyTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#selectItemDiscount{
+    position: relative;
+    left: 800px;
+    top: -448px;
+}
+
+#selectItemDiscountTextField{
+    width: 170px;
+    height: 25px;
+    border-color: #084298 ;
+    border-radius: 10px;
+}
+
+#checkOutTagLabel{
+    position: relative;
+    left: 1100px;
+    top: -718px;
+    color: #084298 ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#subtotalTag{
+    position: relative;
+    left: 1080px;
+    top: -680px;
+    color: red ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#totalTag{
+    position: relative;
+    left: 1080px;
+    top: -650px;
+    color: red ;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#btnAddToCart{
+    position: relative;
+    left: 820px;
+    top: -420px;
+    width: 150px;
+    height: 40px;
+}
+
+#btnConfirmOrder{
+    position: relative;
+    left: 1270px;
+    top: -620px;
+    width: 150px;
+    height: 40px;
+}
+
+#orderTable{
+    background-color: rgba(111, 148, 220,0.5);
+    width: 1400px;
+    position: relative;
+    left: 60px;
+    top: -500px;
+}
