@@ -1,117 +1,103 @@
-import Item from "../models/Item.js"
-
-const data = "items"; //local storage save key
-
-var item_arr = []; //
+import {Item} from "../models/item.js";
+import {saveItem, getAllItems, updateItem,deleteItem} from "../DB/db.js";
 
 export class Item_controller{
     constructor() {
-        $('#btnSaveItem').click(this.handledSaveItem.bind(this))
-        $('#btnUpdateItem').click(this.handledUpdateItem.bind(this))
-        $('#btnDeleteItem').click(this.handledDeleteItem.bind(this))
-        this.handleLoadItem()
-    }
+        $("#btnSaveItem").click(this.handleSaveItem.bind(this));
+        $("#btnUpdateItem").click(this.handleUpdateItem.bind(this));
+        $("#btnDeleteItem").click(this.handleDeleteItem.bind(this));
+        this.handleLoadItem();
+        this.itemTableSelectedRaw();
 
-    handledSaveItem(){
-        console.log("Handle Save Item!")
-
-        var item_code = $('#txtItemID').val();
-        var item_name = $('#txtItemName').val();
-        var item_quantity = $('#txtItemQty').val();
-        var item_price = $('#txtItemPrice').val();
-
-        let pre_data = localStorage.getItem(data);
-        let data_arr = [];
-
-        // undefine/ null/ "" / false
-        if (pre_data) {
-            data_arr = JSON.parse(pre_data);
-        }
-
-        let new_item = new Item(item_code,item_name,item_quantity,item_price);
-        console.log(new_item)
-
-        data_arr.push(new_item);
-        console.log(data_arr);
-        localStorage.setItem(data, JSON.stringify(data_arr));
-
-        this.handleLoadItem()
-        clearItem()
     }
 
     handleLoadItem(){
-        let pre_data = localStorage.getItem(data);
-        console.log(pre_data);
-        let item_data_arr = JSON.parse(pre_data);
-        console.log(item_data_arr);
+        let item_data = getAllItems();
+        $('#itemTable tbody').empty();
 
-        $('table tbody tr').remove();
-
-        item_data_arr.map((result, index) => {
-            var row = "<tr>" +
-                "<td>" + result._item_code + "</td>" +
-                "<td>" + result._item_name + "</td>" +
-                "<td>" + result._item_quantity + "</td>" +
-                "<td>" + result._item_price + "</td>" +
-                "</tr>";
-            $('tbody').append(row);
-        })
-
-    }
-
-    handledUpdateItem() {
-        console.log("Handle Update Item!");
-
-        $('#btnUpdateItem').on('click',(event)=>{
-            let item_code = $("#textItemID").val();
-
-            let pre_data = localStorage.getItem(dataI);
-            let item_data_arr =JSON.parse(pre_data);
-
-            let index = item_data_arr.findIndex(value => value._item_code === item_code);
-            if (index > -1){
-                console.log(item_data_arr[index]);
-                item_data_arr[index]._item_name = $("#txtItemName").val();
-                item_data_arr[index]._item_quantity = $("#txtItemQty").val();
-                item_data_arr[index]._item_price = $("#txtItemPrice").val();
-                localStorage.setItem(data,JSON.stringify(item_data_arr));
-                this.handleLoadItem()
-                clearItem()
-            }
+        item_data.map((result, index) => {
+            const row = "<tr>" + "<td>" +
+                result._itemId +
+                "</td>" + "<td>" +
+                result._name +
+                "</td>" + "<td>" +
+                result._qty +
+                "</td>" + "<td>" +
+                result._price +
+                "</td>" + "</tr>";
+            $("#itemTable tbody").append(row);
         });
     }
 
-    handledDeleteItem(){
-        console.log("Handle Delete Item!");
+    handleSaveItemValidation(){
 
-        $('#btnDeleteItem').on("click",(event)=>{
-
-            let code = $("#txtItemID").val();
-
-            let per_arr = localStorage.getItem(data);
-            let arr = [];
-            if(per_arr){
-                arr = JSON.parse(per_arr);
-            }
-
-            let index = arr.findIndex(value => value._item_code === code);
-            console.log(index);
-            arr.splice(index, 1);
-
-            localStorage.setItem(data, JSON.stringify(arr));
-            this.handleLoadItem()
-        })
     }
+
+    handleSaveItem(){
+        console.log("Item-added");
+        let item_id = $("#txtItemID").val();
+        let item_name = $("#txtItemName").val();
+        let item_qty = $("#txtItemQty").val();
+        let item_price = $("#txtItemPrice").val();
+
+        let item = new Item(item_id,item_name,item_qty,item_price);
+        saveItem(item);
+        this.handleLoadItem();
+        this.clearFields();
+
+
+    }
+
+    handleUpdateItem(){
+        let item_id = $("#txtItemID").val();
+        let item_name = $("#txtItemName").val();
+        let item_qty = $("#txtItemQty").val();
+        let item_price = $("#txtItemPrice").val();
+
+        let item = new Item(item_id,item_name,item_qty,item_price);
+        updateItem(item);
+        this.handleLoadItem();
+        this.clearFields();
+    }
+
+    handleDeleteItem(){
+        let item_id = $("#txtItemID").val();
+        let item_name = $("#txtItemName").val();
+        let item_qty = $("#txtItemQty").val();
+        let item_price = $("#txtItemPrice").val();
+
+        let item = new Item(item_id,item_name,item_qty,item_price);
+        deleteItem(item);
+        this.handleLoadItem();
+        this.clearFields();
+    }
+
+    itemTableSelectedRaw(){
+        $("#itemTable").on("click", "tr", function (event) {
+            console.log($(event.target).text());
+            let id = $(this).children().eq(0).text();
+            let name = $(this).children().eq(1).text();
+            let qty = $(this).children().eq(2).text();
+            let price = $(this).children().eq(3).text();
+
+            $("#txtItemID").val(id);
+            $("#txtItemName").val(name);
+            $("#txtItemQty").val(qty);
+            $("#txtItemPrice").val(price);
+        });
+    }
+
+    clearFields(){
+        $("#txtItemID").val("");
+        $("#txtItemName").val("");
+        $("#txtItemQty").val("");
+        $("#txtItemPrice").val("");
+    }
+
+
+
 }
 
-function clearItem() {
-    $("#txtItemID").val("");
-    $("#txtItemName").val("");
-    $("#txtItemQty").val("");
-    $("#txtItemPrice").val("");
-}
-
-new Item_controller()
-
+new Item_controller();
 
 

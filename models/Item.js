@@ -1,43 +1,40 @@
-export default class Item {
-
-    constructor(item_code, item_name, item_quantity, item_price) {
-        this.item_code = item_code;
-        this.item_name = item_name;
-        this.item_quantity = item_quantity;
-        this.item_price = item_price;
+export class  Item {
+    constructor(itemId,name,qty,price) {
+        this._itemId = itemId;
+        this._name = name;
+        this._qty = qty;
+        this._price = price;
     }
 
-    get item_code() {
-        return _item_code;
+    get itemId() {
+        return this._itemId;
     }
 
-    set item_code(item_code) {
-        this._item_code = item_code;
+    set itemId(value) {
+        this._itemId = value;
     }
 
-    get item_name() {
-        return _item_name;
+    get name() {
+        return this._name;
     }
 
-    set item_name(item_name) {
-        this._item_name = item_name;
+    set name(value) {
+        this._name = value;
     }
 
-    get item_quantity() {
-        return _item_quantity;
+    get qty() {
+        return this._qty;
     }
 
-    set item_quantity(item_quantity) {
-        this._item_quantity = item_quantity;
+    set qty(value) {
+        this._qty = value;
     }
 
-    get item_price() {
-        return _item_price;
+    get price() {
+        return this._price;
     }
 
-    set item_price(item_price) {
-        this._item_price = item_price;
+    set price(value) {
+        this._price = value;
     }
 }
-
-

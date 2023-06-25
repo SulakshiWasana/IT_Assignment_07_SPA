@@ -1,43 +1,41 @@
-export default class Customer {
-
-    constructor(customer_id, customer_name, customer_address, customer_salary) {
-        this.customer_id = customer_id;
-        this.customer_name = customer_name;
-        this.customer_address = customer_address;
-        this.customer_salary = customer_salary;
-    }
-
-    get customer_id() {
-        return _customer_id;
-    }
-
-    set customer_id(customer_id) {
-        this._customer_id = customer_id;
-    }
-
-    get customer_name() {
-        return _customer_name;
-    }
-
-    set customer_name(customer_name) {
-        this._customer_name = customer_name;
-    }
-
-    get customer_address() {
-        return _customer_address;
-    }
-
-    set customer_address(customer_address) {
-        this._customer_address = customer_address;
-    }
-
-    get customer_salary() {
-        return _customer_salary;
-    }
-
-    set customer_salary(customer_salary) {
-        this._customer_salary = customer_salary;
+export class Customer {
+    constructor(custId, name, address, salary) {
+        this._custId = custId;
+        this._name = name;
+        this._address = address;
+        this._salary = salary;
     }
 
 
+    get custId() {
+        return this._custId;
+    }
+
+    set custId(value) {
+        this._custId = value;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(value) {
+        this._name = value;
+    }
+
+    get address() {
+        return this._address;
+    }
+
+    set address(value) {
+        this._address = value;
+    }
+
+    get salary() {
+        return this._salary;
+    }
+
+    set salary(value) {
+        this._salary = value;
+    }
 }

@@ -89,7 +89,7 @@
             <th scope="col">Customer Salary</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="cusTable">
         </tbody>
     </table>
 </section>
@@ -138,11 +138,11 @@
         <tr>
             <th scope="col">Item ID</th>
             <th scope="col">Item Name</th>
-            <th scope="col">Item Address</th>
-            <th scope="col">Item Salary</th>
+            <th scope="col">Item Quantity</th>
+            <th scope="col">Item Price</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="it1Table">
         </tbody>
     </table>
 </section>
@@ -150,121 +150,94 @@
 <!------------------------------------------placeorder form------------------------------------------->
 <section class="row placeorderform">
 
-    <!--invoice details-->
+    <!--placeorder tag-->
+    <h1 id="placeorderTag">Place Order Form</h1><br>
 
-    <!--invoice tag-->
-    <label id="invoiceTagLabel">Invoice Details</label><br>
+    <div class="container-fluid px-4" id="p1" >
+        <div class="row g-3 my-2">
+            <form class="row g-3">
+                <div class="col-md-4">
+                    <label for="orderID" class="form-label">Order ID</label>
+                    <input type="text" class="form-control" id="orderID">
+                </div>
+                <div class="col-md-4">
+                    <label for="custIdSet" class="form-label">Customer ID</label>
+                    <select id="custIdSet" class="form-select">
+                        <option selected>Choose</option>
+                    </select>
+                </div>
 
-    <div id="invoiceOrderId">
-        <label class="form-label"><b>Order Id :</b></label>
+                <div class="col-md-4">
+                    <label for="itemIdSet" class="form-label">Item ID</label>
+                    <select id="itemIdSet" class="form-select">
+                        <option selected>Choose</option>
+
+                    </select>
+                </div>
+                <div class="col-4">
+                    <label for="itemName" class="form-label">Item Name</label>
+                    <input type="text" class="form-control" id="itemName">
+                </div>
+
+
+                <div class="col-md-4">
+                    <label for="avQty" class="form-label">Available Quantity</label>
+                    <input type="text" class="form-control" id="avQty">
+                </div>
+                <div class="col-md-4">
+                    <label for="unitPrice" class="form-label">Unit Price</label>
+                    <input type="text" class="form-control" id="unitPrice">
+                </div>
+                <div class="col-md-4">
+                    <label for="qty" class="form-label">Qty</label>
+                    <input type="text" class="form-control" id="qty">
+                </div>
+                <div class="col-md-4">
+                    <label for="total" class="form-label">Total</label>
+                    <input type="text" class="form-control" id="total">
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" id="addToCart">Add To Cart</button>
+                    <button type="submit" class="btn btn-danger">Cancel</button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <div id="invoiceOrderDate">
-        <label class="form-label"><b>Date :</b></label>
-        <input id="invoiceOrderDateTextField" type="datetime-local" class="form-control">
+    <div class="row my-5 container-fluid" id="p2">
+        <h3 class="fs-4 mb-3" id="cart">Cart</h3>
+        <div class="col">
+            <table id="cartTbl" class="table">
+                <thead class="thead-dark" style="border-color: #1a1e21">
+                <tr>
+                    <th scope="col">Item ID</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+
+            </table>
+        </div>
     </div>
-
-    <div id="invoiceCusId">
-        <label class="form-label"> <b>Customer ID :</b></label>
-        <input id="invoiceCusIdTextField" type="text" class="form-control" placeholder="Enter Customer ID">
+    <div class="place-orderbtn" id="p3">
+        <form class="d-flex container">
+            <div class="col-md-3 px-1 d-flex gap-4 " id="tagTotal">
+                <label for="total-cost" class="form-label" id="Lt">Total</label>
+                <input type="text" class="form-control" id="total-cost">
+            </div>
+        </form>
     </div>
-
-    <div id="invoiceCusName">
-        <label class="form-label"> <b>Customer Name :</b></label>
-        <input id="invoiceCusNameTextField" type="text" class="form-control">
-    </div>
-
-    <div id="invoiceCusAdd">
-        <label class="form-label"> <b>Customer Address :</b></label>
-        <input id="invoiceCusAddTextField" type="text" class="form-control">
-    </div>
-
-    <div id="invoiceCusSal">
-        <label class="form-label"> <b>Customer Salary :</b></label>
-        <input id="invoiceCusSalTextField" type="text" class="form-control">
-    </div>
-
-    <!--Select Item-->
-
-    <!--Select Item Tag-->
-    <label id="selectTagLabel">Select Item</label><br>
-
-    <div id="selectItemCode">
-        <label class="form-label"> <b>Item Code :</b></label>
-        <input id="selectItemCodeTextField" type="text" class="form-control" placeholder="Enter Item Code">
-    </div>
-
-    <div id="selectItemName">
-        <label class="form-label"> <b>Item Name :</b></label>
-        <input id="selectItemNameTextField" type="text" class="form-control">
-    </div>
-
-    <div id="selectItemPrice">
-        <label class="form-label"> <b>Item Price :</b></label>
-        <input id="selectItemPriceTextField" type="text" class="form-control">
-    </div>
-
-    <div id="selectItemQtyOnHand">
-        <label class="form-label"> <b>Qty On Hand :</b></label>
-        <input id="selectItemQtyOnHandTextField" type="text" class="form-control">
-    </div>
-
-    <div id="selectItemOrderQty">
-        <label class="form-label"> <b>Order Qty :</b></label>
-        <input id="selectItemOrderQtyTextField" type="text" class="form-control" placeholder="Enter Order Qty">
-    </div>
-
-    <div id="selectItemDiscount">
-        <label class="form-label"> <b>Discount :</b></label>
-        <input id="selectItemDiscountTextField" type="text" class="form-control">
-    </div>
-    <button id="btnAddToCart" type="button" class="btn btn-warning">Add to Cart</button>
-
-    <!--Check Out-->
-
-    <!--Check Out Tag-->
-    <label id="checkOutTagLabel">Check Out</label><br>
-
-    <div id="subtotalTag">
-        <p class="h3  px-3 ">Sub Total :
-            <span id="txtsubTotal"></span>
-        </p>
-    </div>
-    <div id="totalTag">
-        <p class="h3  px-3 ">Total :
-            <span id="txtTotal"></span>
-        </p>
-    </div>
-    <button id="btnConfirmOrder" type="button" class="btn btn-success" >Confirm Order</button>
-
-    <!--order table-->
-    <table id="orderTable" class="table">
-        <tbody id="cusTB">
-        <thead class="thead-dark" style="border-color: #1a1e21">
-        <tr>
-            <th scope="col">Item ID</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
-            <th scope="col">Total</th>
-        </tr>
-        </thead>>
-        </tbody>
-    </table>
 </section>
-
-
-
 
 <script src="assets/jQuery/jquery-3.6.4.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 
-<script type="module" src="models/Customer.js"></script>
-<script type="module" src="controller/Customer_controller.js"></script>
-<script type="module" src="models/Item.js"></script>
-<script type="module" src="controller/Item_controller.js"></script>
-<script type="module" src="DB/db.js"></script>
-
+<script src="controller/Customer_controller.js" type="module"></script>
+<script src="controller/Item_controller.js" type="module"></script>
+<script src="controller/Order_controller.js" type="module"></script>
+<script src="DB/db.js" type="module"></script>
 
 <script>
     // navigation bar
@@ -293,124 +266,6 @@
         document.getElementsByClassName("customerform")[0].style.display="none"
         document.getElementsByClassName("homepage")[0].style.display="none"
     })
-
-    // // crud operation --> customer form
-    //
-    // //data add to table
-    // $("#cusTB").on('click','tr',function(event){
-    //     console.log($(event.target).text());
-    //     let id = $(this).children().eq(0).text();
-    //     let name = $(this).children().eq(1).text();
-    //     let address = $(this).children().eq(2).text();
-    //     let salary = $(this).children().eq(3).text();
-    //
-    //     $("#txtCusID").val(id);
-    //     $("#txtCusName").val(name);
-    //     $("#txtCusAdd").val(address);
-    //     $("#txtCusSal").val(salary);
-    //
-    //
-    // });
-    //
-    // //send data local Storage
-    // const data = "DATA";
-    //
-    // var customer_arr = [];
-    //
-    // function loadData() {
-    //     let pre_data = localStorage.getItem(data);
-    //     console.log(pre_data);
-    //     let customer_data_arr = JSON.parse(pre_data);
-    //     console.log(customer_data_arr);
-    //
-    //     $('table tbody tr').remove();
-    //
-    //     customer_data_arr.map((result, index) => {
-    //         var row = "<tr>" +
-    //             "<td>" + result.customer_id + "</td>" +
-    //             "<td>" + result.customer_name + "</td>" +
-    //             "<td>" + result.customer_address + "</td>" +
-    //             "<td>" + result.customer_salary + "</td>" +
-    //             "</tr>";
-    //         $('tbody').append(row);
-    //     })
-    // }
-    //
-    // //add customer
-    // $('#btnSaveCus').click(function () {
-    //
-    //     var customer_id = $('#txtCusID').val();
-    //     var customer_name = $('#txtCusName').val();
-    //     var customer_address = $('#txtCusAdd').val();
-    //     var customer_salary = $('#txtCusSal').val();
-    //
-    //
-    //     let pre_data = localStorage.getItem(data);
-    //     console.log("ARR: ", pre_data);
-    //
-    //     let data_arr = [];
-    //
-    //     // undefine/ null/ "" / false
-    //     if (pre_data) {
-    //         data_arr = JSON.parse(pre_data);
-    //     }
-    //
-    //     var obj = {
-    //         customer_id: customer_id,
-    //         customer_name: customer_name,
-    //         customer_address: customer_address,
-    //         customer_salary: customer_salary
-    //     }
-    //
-    //     data_arr.push(obj);
-    //     console.log(data_arr);
-    //     localStorage.setItem(data, JSON.stringify(data_arr));
-    //     loadData();
-    //
-    // });
-    //
-    // loadData();
-    //
-    //
-    // //update customer
-    // $('#btnUpdateCus').on('click',(event)=>{
-    //     let customer_id = $("#txtCusID").val();
-    //     let pre_data = localStorage.getItem(data);
-    //     let customer_data_arr =JSON.parse(pre_data);
-    //
-    //     let index = customer_data_arr.findIndex(value => value.customer_id===customer_id);
-    //     if (index > -1){
-    //         console.log(customer_data_arr[index]);
-    //         customer_data_arr[index].id = $("#txtCusID").val();
-    //         customer_data_arr[index].customer_name = $("#txtCusName").val();
-    //         customer_data_arr[index].customer_address = $("#txtCusAdd").val();
-    //         customer_data_arr[index].customer_salary = $("#txtCusSal").val();
-    //         localStorage.setItem(data,JSON.stringify(customer_data_arr));
-    //         loadData();
-    //
-    //     }
-    // });
-    //
-    // //delete Customer
-    // $('#btnDeleteCus').on("click",(event)=>{
-    //
-    //     let id = $("#txtCusID").val();
-    //
-    //     let per_arr = localStorage.getItem(data);
-    //     let arr = [];
-    //     if(per_arr){
-    //         arr = JSON.parse(per_arr);
-    //     }
-    //
-    //     let index = arr.findIndex(value => value.customer_id === id);
-    //     console.log(index);
-    //     arr.splice(index, 1);
-    //
-    //     localStorage.setItem(data, JSON.stringify(arr));
-    //     loadData();
-    // })
-
-
 
 </script>
 
